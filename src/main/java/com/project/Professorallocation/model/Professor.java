@@ -1,25 +1,19 @@
 package com.project.Professorallocation.model;
 
-<<<<<<< HEAD
 import javax.persistence.Column;
-=======
->>>>>>> main
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-=======
->>>>>>> main
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "professor")
 public class Professor {
 	@Id
-<<<<<<< HEAD
 	@Column(nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -86,35 +80,6 @@ public class Professor {
 		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", departmentId=" + departmentId + "]";
 	}
 
-}
-=======
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String name;
-	private String cpf;
-	private long departmentid;
-	
-	
-	public Long getId() {
-		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getCpf() {
-		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-		
 
-}
->>>>>>> main
+	

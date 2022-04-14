@@ -6,16 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+// declarando a classe como entidade
 
 @Entity
 @Table(name = "department")
-
 public class Department {
-	@Id
+	@Id // auto_increment
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
 	private Long id;
-	@Column(name = "fullname", length = 100 ,nullable = false)
+	@Column(name = "fullname", length = 100, nullable = false)
 	private String name;
 
 	public Department() {

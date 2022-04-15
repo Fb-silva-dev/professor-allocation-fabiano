@@ -7,9 +7,5 @@ import com.project.Professorallocation.model.Course;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-	 	
-		
-		
-	}
 
-
+}

@@ -9,10 +9,9 @@ import com.project.Professorallocation.model.Department;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
+	List<Department> findByName(String name);
 	// select*from department WERE name = @name
-	List<Department> findByName(String Name);
 
+	List<Department> findByNameLike(String name);
 	// select*from department WERE name LIKE %@name%
-	List<Department> findByNameLike(String Name);
-
 }

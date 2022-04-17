@@ -13,7 +13,7 @@ public interface AllocationRepository extends JpaRepository<Allocation, Long> {
 	// SELECT * FROM Allocation WERE professor_id =@professorId;
 	List<Professor> findByProfessorId(Long professorId);
 	
-	List<Allocation> findbyCourseId(Long courseId);
+	List<Allocation> findByCourseId(Long courseId);
 
 	// List<Allocation> findByProfessorIdAndCourseId(Long professorId, Long
 	// CourseId);

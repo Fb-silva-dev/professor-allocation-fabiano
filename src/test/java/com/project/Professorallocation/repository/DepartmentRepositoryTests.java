@@ -5,6 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.TestPropertySource;
@@ -18,7 +19,8 @@ import com.project.Professorallocation.model.Department;
 
 public class DepartmentRepositoryTests {
 
-	// Criando uma uma nova estancia no spring
+	// Criando uma nova instancia no spring
+
 	@Autowired
 	DepartmentRepository repository;
 
@@ -27,6 +29,35 @@ public class DepartmentRepositoryTests {
 		List<Department> items = repository.findAll();
 
 		System.out.println("Qtd e elementos retornados:" + items.size());
+
+		for (Department item : items) {
+			System.out.println(item);
+
+		}
+
 	}
 
+	// Criar um novo departamento
+	@Test
+	public void create() {
+		Department departmentBeingCreated = new Department();
+		departmentBeingCreated.setNome("Departamento de informatica");
+		// System.out.println("Id atual: " + departmentBeingCreated.getId());
+
+		// Metodo salvar
+		departmentBeingCreated = repository.save(departmentBeingCreated);
+		// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
+		System.out.println(departmentBeingCreated);
+
+		// Criando um novo departamento "Enfermagem"
+		// Department departmentBeingCreated = new Department();
+		// departmentBeingCreated.setNome("Departamento de Enfermagem","Fisica","Filosofia" );
+		// System.out.println("Id atual: " + departmentBeingCreated.getId());
+		// Metodo salvar
+		// departmentBeingCreated = repository.save(departmentBeingCreated);
+		// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
+		// System.out.println(departmentBeingCreated);
+	}
+	
+	
 }

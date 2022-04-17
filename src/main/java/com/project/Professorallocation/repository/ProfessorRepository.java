@@ -8,6 +8,6 @@ import com.project.Professorallocation.model.Professor;
 
 @Repository
 public interface ProfessorRepository extends JpaRepository<Professor, Long> {
-	List<Professor> findByDepartmentId(Long DepartmentId);
+	List<Professor> findByDepartmentId(Long departmentId);
 
 }

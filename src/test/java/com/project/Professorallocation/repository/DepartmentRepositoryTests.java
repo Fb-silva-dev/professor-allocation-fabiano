@@ -24,7 +24,7 @@ public class DepartmentRepositoryTests {
 	@Autowired
 	DepartmentRepository repository;
 
-	 @Test
+	@Test
 	public void findAll() {
 		List<Department> items = repository.findAll();
 
@@ -34,34 +34,47 @@ public class DepartmentRepositoryTests {
 			System.out.println(item);
 
 		}
-
 	}
 
 	// Criar um novo departamento
+
+	// @Test
+	// public void create() {
+	// Department departmentBeingCreated = new Department(); // Create nao prescisa
+	// setar o ID
+
+	// System.out.println("Id atual: " + departmentBeingCreated.getId());
+	// departmentBeingCreated.setNome("Departamento de informatica");
+
+	// Metodo salvar
+	// departmentBeingCreated = repository.save(departmentBeingCreated);
+
+	// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
+	// System.out.println(departmentBeingCreated);
+
+	// Criando um novo departamento "Enfermagem"
+	// Department departmentBeingCreated = new Department();
+	// departmentBeingCreated.setNome("Departamento de
+	// Enfermagem","Fisica","Filosofia" );
+	// System.out.println("Id atual: " + departmentBeingCreated.getId());
+
+	// Metodo salvar
+	// departmentBeingCreated = repository.save(departmentBeingCreated);
+	// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
+	// System.out.println(departmentBeingCreated);
+	// }
+
 	@Test
-	public void create() {	
+	public void create() {
 		Department departmentBeingCreated = new Department(); // Create nao prescisa setar o ID
-		// System.out.println("Id atual: " + departmentBeingCreated.getId());
-		departmentBeingCreated.setNome("Departamento de informatica"); 
-		
-		// Metodo salvar
-		departmentBeingCreated = repository.save(departmentBeingCreated); 
-		
-		// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
-		System.out.println(departmentBeingCreated); 
-		
-		// Criando um novo departamento "Enfermagem"
-		// Department departmentBeingCreated = new Department();
-		// departmentBeingCreated.setNome("Departamento de
-		// Enfermagem","Fisica","Filosofia" );
-		// System.out.println("Id atual: " + departmentBeingCreated.getId());
-		// Metodo salvar
-		// departmentBeingCreated = repository.save(departmentBeingCreated);
-		// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
-		// System.out.println(departmentBeingCreated);
+		departmentBeingCreated.setName("Departamento de Fisica");
+		departmentBeingCreated = repository.save(departmentBeingCreated);
+		System.out.println(departmentBeingCreated);
+
 	}
 
-	@Test //Modificar dados da tabela
+	@Test
+	// Modificar dados da tabela
 	public void update() {
 		Department departmentBeingCreated = new Department();
 		// no update devo setar o ID

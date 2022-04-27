@@ -70,7 +70,7 @@ public class Allocation {
 	public void setDayOfWeek(DayOfWeek dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
 	}
-
+ 
 	public Date getStartHour() {
 		return startHour;
 	}

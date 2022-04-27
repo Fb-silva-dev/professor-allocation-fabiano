@@ -24,7 +24,7 @@ public class CourseRepositoryTests {
 
 	@Test
 	public void create() throws ParseException {
-		Course courseBeingCreated = new Course();
+		Course courseBeingCreated = new Course(); 
 		courseBeingCreated.setName("Logica Matematica");
 
 		courseBeingCreated = repository.save(courseBeingCreated);

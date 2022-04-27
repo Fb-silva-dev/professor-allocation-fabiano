@@ -35,42 +35,15 @@ public class DepartmentRepositoryTests {
 
 		}
 	}
-
-	// Criar um novo departamento
-
-	// @Test
-	// public void create() {
-	// Department departmentBeingCreated = new Department(); // Create nao prescisa
-	// setar o ID
-
-	// System.out.println("Id atual: " + departmentBeingCreated.getId());
-	// departmentBeingCreated.setNome("Departamento de informatica");
-
-	// Metodo salvar
-	// departmentBeingCreated = repository.save(departmentBeingCreated);
-
-	// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
-	// System.out.println(departmentBeingCreated);
-
-	// Criando um novo departamento "Enfermagem"
-	// Department departmentBeingCreated = new Department();
-	// departmentBeingCreated.setNome("Departamento de
-	// Enfermagem","Fisica","Filosofia" );
-	// System.out.println("Id atual: " + departmentBeingCreated.getId());
-
-	// Metodo salvar
-	// departmentBeingCreated = repository.save(departmentBeingCreated);
-	// Trocando o valor de departmentBaingcreated pelo valor que foi salvo.
-	// System.out.println(departmentBeingCreated);
-	// }
-
-	@Test
+ 
+	@Test 
 	public void create() {
-		Department departmentBeingCreated = new Department(); // Create nao prescisa setar o ID
-		departmentBeingCreated.setName("Departamento de Fisica");
+		// Create nao prescisa setar o ID
+		Department departmentBeingCreated = new Department(); 
+		departmentBeingCreated.setName("Departamento de Informatica");
+		
 		departmentBeingCreated = repository.save(departmentBeingCreated);
 		System.out.println(departmentBeingCreated);
-
 	}
 
 	@Test
@@ -78,7 +51,7 @@ public class DepartmentRepositoryTests {
 	public void update() {
 		Department departmentBeingCreated = new Department();
 		// no update devo setar o ID
-		departmentBeingCreated.setId(5L);
+		departmentBeingCreated.setId(1L);
 		departmentBeingCreated.setNome("Departamento de Fisioterapia");
 		// System.out.println("Id atual: " + departmentBeingCreated.getId());
 		// Metodo salvar
@@ -90,7 +63,7 @@ public class DepartmentRepositoryTests {
 	// teste de como deletar um elemento especifico da tabela
 	public void delete() {
 		// DeleteById espera sempre um id com a letra L
-		repository.deleteById(6L);
+		repository.deleteById(1L);
 	}
 
 	// Deleta todos os registros de uma unica vez

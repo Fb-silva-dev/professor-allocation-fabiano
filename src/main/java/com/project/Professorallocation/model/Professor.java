@@ -22,7 +22,7 @@ public class Professor {
 	private String name;
 
 	@Column(length = 11, nullable = false, unique = true)
-	private String cpf;
+	private String Cpf;
 
 	@Column(name = "department_Id", nullable = false, unique = true)
 	private Long departmentId;
@@ -52,11 +52,11 @@ public class Professor {
 	}
 
 	public String getCpf() {
-		return cpf;
+		return Cpf;
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		this.Cpf = cpf;
 	}
 
 	public Long getDepartmentId() {
@@ -77,7 +77,7 @@ public class Professor {
 
 	@Override
 	public String toString() {
-		return "Professor [id=" + id + ", name=" + name + ", cpf=" + cpf + ", departmentId=" + departmentId + "]";
+		return "Professor [id=" + id + ", name=" + name + ", cpf=" + Cpf + ", departmentId=" + departmentId + "]";
 	}
 
 }

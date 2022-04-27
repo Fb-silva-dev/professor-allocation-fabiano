@@ -25,12 +25,12 @@ public class ProfessorRepositoryTests {
 	public void create() throws ParseException {
 		Professor professorBeingCreated = new Professor();
 		professorBeingCreated.setName("Henrique");
-		professorBeingCreated.setDepartmentId(2L);
-		professorBeingCreated.setCpf("073733654310");
+		professorBeingCreated.setDepartmentId(1L);
+		professorBeingCreated.setCpf("07373365431");
 			
 		professorBeingCreated = repository.save(professorBeingCreated);
-		
-	}
+		 
+	} 
 	@Test
 	public void findAll() {
 		List<Professor> items = repository.findAll();

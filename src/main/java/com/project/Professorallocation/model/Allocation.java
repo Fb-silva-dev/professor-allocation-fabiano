@@ -35,7 +35,7 @@ public class Allocation {
 
 	@Temporal(TemporalType.TIME)
 	@Column(nullable = false)
-	private Date endHour;
+	private Date EndHour;
 
 	@Column(name = "professor_Id", nullable = false, unique = true)
 	private Long professorId;
@@ -79,12 +79,12 @@ public class Allocation {
 		this.startHour = startHour;
 	}
 
-	public Date getEndHour() {
-		return endHour;
+	public static Date getEndHour() {
+		return getEndHour();
 	}
 
 	public void setEndHour(Date endHour) {
-		this.endHour = endHour;
+		this.EndHour = endHour;
 	}
 
 	public Long getProfessorId() {
@@ -121,7 +121,7 @@ public class Allocation {
 
 	@Override
 	public String toString() {
-		return "Allocation [id=" + id + ", dayOfWeek=" + dayOfWeek + ", startHour=" + startHour + ", endHour=" + endHour
+		return "Allocation [id=" + id + ", dayOfWeek=" + dayOfWeek + ", startHour=" + startHour + ", endHour=" + EndHour
 				+ ", professorId=" + professorId + ", courseId=" + courseId + "]";
 	}
 

@@ -26,11 +26,13 @@ public class CourseService {
 		return saveinternal(course);
 	}
 
+	// Metodo para Salvar um curso criado
 	private Course saveinternal(Course course) {
 		Course insertedCourse = repository.save(course);
 		return insertedCourse;
 	}
 
+	// Atualizar um Curso por ID
 	public Course update(Course course) {
 		Long id = course.getId();
 		if (id == null || !repository.existsById(id)) {
@@ -40,6 +42,7 @@ public class CourseService {
 		}
 	}
 
+	// deletar um curso pelo ID
 	public void deleteById(Long id) {
 		if (repository.existsById(id)) {
 
@@ -50,9 +53,11 @@ public class CourseService {
 	public Course findById(Long id) {
 		return repository.findById(id).orElse(null);
 	}
-	
-	public List<Course> findAll(){
+
+	// Listar os cursos do repositorio
+	public List<Course> findAll() {
 		return repository.findAll();
-		
+
 	}
+
 }

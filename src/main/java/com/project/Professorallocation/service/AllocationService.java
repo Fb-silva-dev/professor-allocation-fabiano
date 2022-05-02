@@ -1,5 +1,8 @@
+
 package com.project.Professorallocation.service;
 
+import java.util.List;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.project.Professorallocation.model.Allocation;
@@ -9,14 +12,14 @@ import com.project.Professorallocation.repository.AllocationRepository;
 public class AllocationService {
 	private final AllocationRepository repository;
 
-//Criar um constructor para servico , nao pode ser vasio
 	public AllocationService(AllocationRepository repository) {
 		super();
 		this.repository = repository;
 	}
 
-	public Allocation findById(Long id) {
-		return repository.findById(id).orElse(null);
+	public Allocation findById(Long Id) {
+		return repository.findById(Id).orElse(null);
+
 	}
 
 	public List<Allocation> findAll() {
@@ -29,12 +32,53 @@ public class AllocationService {
 			repository.deleteById(id);
 		}
 	}
-	public Allocation Create(Allocation allocation) {
+
+	public Allocation create(Allocation allocation) {
 		allocation.setId(null);
-		return saveInternal(allocation); 
+		return saveInternal(allocation);
+
 	}
+
 	private Allocation saveInternal(Allocation allocation) {
-		Allocation createdAllocation = repository.save(allocation);
-		return createdAllocation;
+		if (hasCollision(allocation)) {
+			throw new RuntimeException("There is a time collision for this allocation");
+
+		}
+		Allocation insertedAllocation = repository.save(allocation);
+		return insertedAllocation;
+	}
+
+	public Allocation update(Allocation allocation) {
+		Long id = allocation.getId();
+		if (id == null || !repository.existsById(id)) {
+			return null;
+		} else {
+			return saveInternal(allocation);
+
+		}
+	}
+
+	private boolean hasCollision(Allocation newAllocation) {
+		List<Allocation> currentAllocations = repository.findByProfessorId(newAllocation.getprofessorId());
+		boolean collisionFound = false;
+
+		for (Allocation item : currentAllocations) {
+			if (hasCollision(item, newAllocation)) {
+				collisionFound = true;
+				break;
+
+			}
+		}
+		return collisionFound;
+	}
+
+	private boolean hasCollision(Allocation currentAllocation, Allocation newAllocation) {
+		boolean collision = !currentAllocation.getId().equals(newAllocation.getId())
+				&& currentAllocation.getProfessorId().equals(newAllocation.getProfessorId())
+				&& currentAllocation.getDayOfWeek().equals(newAllocation.getDayOfWeek())
+				&& currentAllocation.getStartHour().compareTo(newAllocation.getEndHour()) < 0
+				&& newAllocation.getStartHour().compareTo(currentAllocation.getEndHour()) < 0;
+		return collision;
+
 	}
 }

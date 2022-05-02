@@ -16,6 +16,7 @@ public class ProfessorService {
 		super();
 		this.repository = repository;
 	}
+
 	public Professor Create(Professor professor) {
 		professor.setId(null);
 		return saveinternal(professor);
@@ -51,5 +52,3 @@ public class ProfessorService {
 
 	}
 }
-
-

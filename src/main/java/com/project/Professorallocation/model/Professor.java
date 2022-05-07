@@ -35,7 +35,7 @@ public class Professor {
 		super();
 	}
 
-	public Long getId() {
+	public Long getId() { 
 		return id;
 	}
 

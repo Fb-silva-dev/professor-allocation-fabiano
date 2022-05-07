@@ -24,9 +24,9 @@ public class ProfessorRepositoryTests {
 	@Test
 	public void create() throws ParseException {
 		Professor professorBeingCreated = new Professor();
-		professorBeingCreated.setName("Henrique");
-		professorBeingCreated.setDepartmentId(1L);
-		professorBeingCreated.setCpf("07373365431");
+		professorBeingCreated.setName("Fabiano");
+		professorBeingCreated.setDepartmentId(5L);
+		professorBeingCreated.setCpf("09876535421");
 			
 		professorBeingCreated = repository.save(professorBeingCreated);
 		 
@@ -43,4 +43,4 @@ public class ProfessorRepositoryTests {
 		}
 	}
 	
-}
+} 

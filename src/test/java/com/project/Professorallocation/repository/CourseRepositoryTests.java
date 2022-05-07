@@ -24,16 +24,19 @@ public class CourseRepositoryTests {
 
 	@Test
 	public void create() throws ParseException {
-		Course courseBeingCreated = new Course(); 
-		courseBeingCreated.setName("Logica Matematica");
-
+		Course courseBeingCreated = new Course();
+		courseBeingCreated.setName("Python");
+		
 		courseBeingCreated = repository.save(courseBeingCreated);
+		System.out.println(courseBeingCreated);
 	}
 
 	@Test
 	public void findAll() {
 		List<Course> items = repository.findAll();
 		System.out.println("Qtd. elementos de cursos retornados : " + items.size());
-
+		for (Course item : items) {
+			System.out.println(item);
+		}
 	}
 }

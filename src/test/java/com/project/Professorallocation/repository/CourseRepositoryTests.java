@@ -25,7 +25,7 @@ public class CourseRepositoryTests {
 	@Test
 	public void create() throws ParseException {
 		Course courseBeingCreated = new Course();
-		courseBeingCreated.setName("Python");
+		courseBeingCreated.setName("Historia");
 		
 		courseBeingCreated = repository.save(courseBeingCreated);
 		System.out.println(courseBeingCreated);
@@ -39,4 +39,4 @@ public class CourseRepositoryTests {
 			System.out.println(item);
 		}
 	}
-}
+} 

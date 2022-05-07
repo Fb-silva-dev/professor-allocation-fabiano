@@ -11,7 +11,10 @@ import com.project.Professorallocation.model.Allocation;
 public interface AllocationRepository extends JpaRepository<Allocation, Long> {
 
 	// SELECT * FROM Allocation WERE professor_id =@professorId;
-	List<Allocation> findByProfessorId(Long professorIdLong);
+	static List<Allocation> findByProfessorId(Long professorIdLong) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	List<Allocation> findByCourseId(Long courseIdLong);
 

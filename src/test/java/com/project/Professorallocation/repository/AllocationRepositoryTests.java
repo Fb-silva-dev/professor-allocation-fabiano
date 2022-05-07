@@ -31,21 +31,21 @@ public class AllocationRepositoryTests {
 	public void create() throws ParseException {
 
 		Allocation allocation = new Allocation();
-		allocation.setId(1L);
+		allocation.setId(3L);
 		allocation.setDayOfWeek(DayOfWeek.THURSDAY);
 		allocation.setDayOfWeek(DayOfWeek.SUNDAY);
 		allocation.setStartHour(sdf.parse("17:00-0300"));
 		allocation.setEndHour(sdf.parse("18:00-0300"));
-		allocation.setProfessorId(1L);
-		allocation.setCourseId(1L);
-
+		allocation.setProfessorId(3L);
+		allocation.setCourseId(3L);
+ 
 		// Act
 		allocation = repository.save(allocation);
 
 		// Print
 		System.out.println(allocation); 
 	}
-
+ 
 	// Deleta todos os registros de uma unica vez
 		@Test
 		public void delleteAlltems() {

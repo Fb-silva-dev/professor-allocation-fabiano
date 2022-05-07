@@ -39,7 +39,7 @@ public class DepartmentRepositoryTests {
 	public void create() {
 		// Create nao prescisa setar o ID
 		Department departmentBeingCreated = new Department(); 
-		departmentBeingCreated.setName("Departamento de Humanas");
+		departmentBeingCreated.setName("Departamento de Saude");
 		
 		departmentBeingCreated = repository.save(departmentBeingCreated);
 		System.out.println(departmentBeingCreated);

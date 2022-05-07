@@ -24,13 +24,13 @@ public class ProfessorRepositoryTests {
 	@Test
 	public void create() throws ParseException {
 		Professor professorBeingCreated = new Professor();
-		professorBeingCreated.setName("Fabiano");
-		professorBeingCreated.setDepartmentId(5L);
-		professorBeingCreated.setCpf("09876535421");
+		professorBeingCreated.setName("Allana Fernada");
+		professorBeingCreated.setDepartmentId(3L);
+		professorBeingCreated.setCpf("07332989743");
 			
 		professorBeingCreated = repository.save(professorBeingCreated);
 		 
-	} 
+	}  
 	@Test
 	public void findAll() {
 		List<Professor> items = repository.findAll();

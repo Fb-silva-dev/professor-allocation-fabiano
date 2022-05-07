@@ -43,8 +43,14 @@ public class AllocationRepositoryTests {
 		allocation = repository.save(allocation);
 
 		// Print
-		System.out.println(allocation);
+		System.out.println(allocation); 
 	}
+
+	// Deleta todos os registros de uma unica vez
+		@Test
+		public void delleteAlltems() {
+			repository.deleteAllInBatch();
+		}
 
 	
 }

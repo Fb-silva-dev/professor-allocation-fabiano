@@ -32,7 +32,6 @@ public class DepartmentRepositoryTests {
 
 		for (Department item : items) {
 			System.out.println(item);
-
 		}
 	}
  
@@ -40,7 +39,7 @@ public class DepartmentRepositoryTests {
 	public void create() {
 		// Create nao prescisa setar o ID
 		Department departmentBeingCreated = new Department(); 
-		departmentBeingCreated.setName("Departamento de Informatica");
+		departmentBeingCreated.setName("Departamento de Humanas");
 		
 		departmentBeingCreated = repository.save(departmentBeingCreated);
 		System.out.println(departmentBeingCreated);
@@ -51,7 +50,7 @@ public class DepartmentRepositoryTests {
 	public void update() {
 		Department departmentBeingCreated = new Department();
 		// no update devo setar o ID
-		departmentBeingCreated.setId(1L);
+		departmentBeingCreated.setId(4L);
 		departmentBeingCreated.setNome("Departamento de Fisioterapia");
 		// System.out.println("Id atual: " + departmentBeingCreated.getId());
 		// Metodo salvar
@@ -61,6 +60,7 @@ public class DepartmentRepositoryTests {
 	}
 
 	// teste de como deletar um elemento especifico da tabela
+	@Test
 	public void delete() {
 		// DeleteById espera sempre um id com a letra L
 		repository.deleteById(1L);

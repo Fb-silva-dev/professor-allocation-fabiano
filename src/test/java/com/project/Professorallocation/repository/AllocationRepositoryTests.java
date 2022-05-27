@@ -3,7 +3,7 @@ package com.project.Professorallocation.repository;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
-
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,12 @@ public class AllocationRepositoryTests {
 	public void create() throws ParseException {
 
 		Allocation allocation = new Allocation();
-		allocation.setId(3L);
+		allocation.setId(4L);
 		allocation.setDayOfWeek(DayOfWeek.THURSDAY);
 		allocation.setDayOfWeek(DayOfWeek.SUNDAY);
 		allocation.setStartHour(sdf.parse("17:00-0300"));
 		allocation.setEndHour(sdf.parse("18:00-0300"));
-		allocation.setProfessorId(3L);
+		allocation.setProfessorId(4L);
 		allocation.setCourseId(3L);
  
 		// Act
@@ -52,6 +52,15 @@ public class AllocationRepositoryTests {
 			repository.deleteAllInBatch();
 		}
 
-	
+		@Test
+		public void findAll() {
+			List<Allocation> items = repository.findAll();
+
+			System.out.println("Qtd e elementos retornados:" + items.size());
+
+			for (Allocation item : items) {
+				System.out.println(item);
+			}
+		}
 }
 

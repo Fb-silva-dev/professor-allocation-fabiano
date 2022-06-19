@@ -21,7 +21,7 @@ public class CourseService {
 
 	// metodo para criar um novo course
 
-	public Course Create(Course course) {
+	public Course create(Course course) {
 		course.setId(null);
 		return saveinternal(course);
 	}
@@ -31,7 +31,7 @@ public class CourseService {
 		Course insertedCourse = repository.save(course);
 		return insertedCourse;
 	}
-
+ 
 	// Atualizar um Curso por ID
 	public Course update(Course course) {
 		Long id = course.getId();
@@ -45,7 +45,6 @@ public class CourseService {
 	// deletar um curso pelo ID
 	public void deleteById(Long id) {
 		if (repository.existsById(id)) {
-
 			repository.deleteById(id);
 		}
 	}

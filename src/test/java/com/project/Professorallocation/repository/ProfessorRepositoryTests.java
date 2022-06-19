@@ -24,9 +24,9 @@ public class ProfessorRepositoryTests {
 	@Test
 	public void create() throws ParseException {
 		Professor professorBeingCreated = new Professor();
-		professorBeingCreated.setName("Darilson Cassiano");
-		professorBeingCreated.setDepartmentId(4L);
-		professorBeingCreated.setCpf("00972989743");
+		professorBeingCreated.setName("Raul Araujo");
+		professorBeingCreated.setDepartmentId(2L);
+		professorBeingCreated.setCpf("45372962743");
 			
 		professorBeingCreated = repository.save(professorBeingCreated);
 		 

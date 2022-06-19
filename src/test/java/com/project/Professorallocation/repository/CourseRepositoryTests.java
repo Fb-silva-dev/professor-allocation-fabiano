@@ -25,7 +25,7 @@ public class CourseRepositoryTests {
 	@Test
 	public void create() throws ParseException {
 		Course courseBeingCreated = new Course();
-		courseBeingCreated.setName("Historia");
+		courseBeingCreated.setName("Direito");
 		
 		courseBeingCreated = repository.save(courseBeingCreated);
 		System.out.println(courseBeingCreated);

@@ -17,12 +17,12 @@ public class DepartmentService {
 		this.repository = repository;
 	}
 
-	public Department Create(Department department) {
+	public Department create(Department department) {
 		department.setId(null);
-		return saveinternal(department);
+		return saveInternal(department);
 	}
 
-	private Department saveinternal(Department department) {
+	private Department saveInternal(Department department) {
 		Department insertedDepartment = repository.save(department);
 		return insertedDepartment;
 	}
@@ -32,7 +32,7 @@ public class DepartmentService {
 		if (id == null || !repository.existsById(id)) {
 			return null;
 		} else {
-			return saveinternal(department);
+			return saveInternal(department);
 		}
 	}
  

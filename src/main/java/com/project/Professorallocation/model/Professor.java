@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "professor")
+
 public class Professor {
 	@Id
 	@Column(nullable = false)
@@ -23,16 +24,29 @@ public class Professor {
 
 	@Column(length = 11, nullable = false, unique = true)
 	private String Cpf;
-
-	@Column(name = "department_Id", nullable = false, unique = true)
+	@Column(name = "department_id", nullable = false, unique = false)
+	
 	private Long departmentId;
 
 	@ManyToOne(optional = false)
-	@JoinColumn(name = "department_Id", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "department_id", nullable = false, insertable = false, updatable = false)
+	
 	private Department department;
+	
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
 	public Professor() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Professor [id=" + id + ", name=" + name + ", cpf=" + Cpf + ", departmentId=" + departmentId + "]";
 	}
 
 	public Long getId() { 
@@ -65,19 +79,8 @@ public class Professor {
 
 	public void setDepartmentId(Long departmentId) {
 		this.departmentId = departmentId;
-	}
+	} 
 
-	public Department getDepartment() {
-		return department;
-	}
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
-	@Override
-	public String toString() {
-		return "Professor [id=" + id + ", name=" + name + ", cpf=" + Cpf + ", departmentId=" + departmentId + "]";
-	}
-
+	
 }

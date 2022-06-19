@@ -20,15 +20,19 @@ public class AllocationService {
 
 	}
 
-	public List<Allocation> findAll() {
+	public List<Allocation> findAll(String name) {
 		return repository.findAll();
 
 	}
- 
+
 	public void deleteById(Long id) {
 		if (repository.existsById(id)) {
 			repository.deleteById(id);
 		}
+	}
+
+	public void deletAll() {
+		repository.deleteAllInBatch();
 	}
 
 	public Allocation create(Allocation allocation) {
@@ -38,10 +42,10 @@ public class AllocationService {
 
 	public Allocation update(Allocation allocation) {
 		Long id = allocation.getId();
-		if (id == null || !repository.existsById(id)) {
-			return null;
-		} else {
+		if (id != null && repository.existsById(id)) {
 			return saveInternal(allocation);
+		} else {
+			return null;
 
 		}
 	}
@@ -51,28 +55,31 @@ public class AllocationService {
 			throw new RuntimeException("There is a time collision for this allocation");
 		}
 		allocation = repository.save(allocation);
+
 		return allocation;
 	}
 
 	private boolean hasCollision(Allocation newAllocation) {
-		boolean hasCollision = false;
+		boolean collisionFound = false;
 
 		List<Allocation> currentAllocations = AllocationRepository.findByProfessorId(newAllocation.getProfessorId());
 
-		for (Allocation currentAllocation : currentAllocations) {
-			hasCollision = hasCollision(currentAllocation, newAllocation);
-			if (hasCollision) {
+		for (Allocation item : currentAllocations) {
+			if (hasCollision(item, newAllocation)) {
+				collisionFound = true;
 				break;
-			} 
+			}
 		}
-   
-		return hasCollision;
+
+		return collisionFound;
 	}
 
 	private boolean hasCollision(Allocation currentAllocation, Allocation newAllocation) {
-		return !currentAllocation.getId().equals(newAllocation.getId())
-				&& currentAllocation.getDayOfWeek() == newAllocation.getDayOfWeek() 
+		boolean collision = !currentAllocation.getId().equals(newAllocation.getId())
+				&& currentAllocation.getProfessorId().equals(newAllocation.getProfessorId())
+				&& currentAllocation.getDayOfWeek().equals(newAllocation.getDayOfWeek())
 				&& currentAllocation.getStartHour().compareTo(Allocation.getEndHour()) < 0
 				&& newAllocation.getStartHour().compareTo(Allocation.getEndHour()) < 0;
+		return collision;
 	}
-} 
+}

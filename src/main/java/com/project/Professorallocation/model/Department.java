@@ -45,9 +45,9 @@ public class Department {
 		return name;
 	}
 
-	public void setNome(String name) {
+	/*public void setName(String name) {
 		this.name = name;
-	}
+	}*/
 
 	public Long getId() {
 		return id;

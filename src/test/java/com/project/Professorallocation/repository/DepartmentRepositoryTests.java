@@ -39,7 +39,7 @@ public class DepartmentRepositoryTests {
 	public void create() {
 		// Create nao prescisa setar o ID
 		Department departmentBeingCreated = new Department(); 
-		departmentBeingCreated.setName("Quimica");
+		departmentBeingCreated.setName("Departamento Humanas ");
 		
 		departmentBeingCreated = repository.save(departmentBeingCreated);
 		System.out.println(departmentBeingCreated);
@@ -51,7 +51,7 @@ public class DepartmentRepositoryTests {
 		Department departmentBeingCreated = new Department();
 		// no update devo setar o ID
 		departmentBeingCreated.setId(4L);
-		departmentBeingCreated.setNome("Departamento de Fisioterapia");
+		departmentBeingCreated.setName("Departamento de Fisioterapia");
 		// System.out.println("Id atual: " + departmentBeingCreated.getId());
 		// Metodo salvar
 		departmentBeingCreated = repository.save(departmentBeingCreated);
@@ -70,6 +70,5 @@ public class DepartmentRepositoryTests {
 	@Test
 	public void delleteAlltems() {
 		repository.deleteAllInBatch();
-	}
- 
+	} 
 }

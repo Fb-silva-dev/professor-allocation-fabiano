@@ -17,7 +17,7 @@ public class ProfessorService {
 		this.repository = repository;
 	}
 
-	public Professor Create(Professor professor) {
+	public Professor create(Professor professor) {
 		professor.setId(null);
 		return saveinternal(professor);
 	}

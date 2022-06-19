@@ -15,22 +15,22 @@ import com.project.Professorallocation.model.Allocation;
 @TestPropertySource(locations = "classpath:application.properties")
 
 public class AllocationServiceTests {
-	
+
 	private SimpleDateFormat sdf = new SimpleDateFormat("HH:mmZ");
 
 	@Autowired
 	AllocationService service;
-	
+
 	@Test
 	public void create() throws ParseException {
 		Allocation allocation = new Allocation();
 		allocation.setDayOfWeek(DayOfWeek.MONDAY);
-		allocation.setProfessorId(2L);
+		allocation.setProfessorId(1L);
 		allocation.setCourseId(1L);
-		allocation.setStartHour(sdf.parse("17:00-0300"));
-		allocation.setEndHour(sdf.parse("18:00-0300"));
-		
+		allocation.setStartHour(sdf.parse("19:00-0300"));
+		allocation.setEndHour(sdf.parse("21:00-0300"));
+
 		allocation = service.create(allocation);
-		
+
 	}
-} 
+}

@@ -32,7 +32,7 @@ public class DepartmentController {
 		List<Department> allDepartments = service.findAll();
 
 		return new ResponseEntity<>(allDepartments, HttpStatus.OK);
- 
+
 	}
 
 	@GetMapping(path = "{dept_id}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,9 +49,11 @@ public class DepartmentController {
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
+
 	public ResponseEntity<Department> create(@RequestBody Department dept) {
-		Department item = service.Create(dept);
+		Department item = service.create(dept);
 
 		return new ResponseEntity<>(item, HttpStatus.CREATED);
 	}
 }
+//curl -v --request POST --header "Content-Type: application/json" --header "Accept: application/json" --data-raw "{\"name\": \"Departamento de Gastronomia\"}" "http://localhost:8080/departments"

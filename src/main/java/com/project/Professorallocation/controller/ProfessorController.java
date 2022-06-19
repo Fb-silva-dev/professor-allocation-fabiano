@@ -17,7 +17,7 @@ import com.project.Professorallocation.model.Professor;
 import com.project.Professorallocation.service.ProfessorService;
 
 @RestController
-@RequestMapping(path = "/professor") // vai definir qual o caminho do recurso.
+@RequestMapping(path = "/professors") // vai definir qual o caminho do recurso.
 public class ProfessorController {
 	private ProfessorService service;
 
@@ -45,11 +45,13 @@ public class ProfessorController {
 			return new ResponseEntity<>(item, HttpStatus.OK);
 		}
 	}
+
 	@PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Professor> create(@RequestBody Professor prof) {
-		Professor item = service.Create(prof);
+		Professor item = service.create(prof);
 
 		return new ResponseEntity<>(item, HttpStatus.CREATED);
 	}
 }
+//curl -v --request POST --header "Content-Type: application/json" --header "Accept: application/json" --data-raw "{\"name\": \"Alan Araujo\",\"cpf\":\"09809583232\",\"departmentId\":\"1\"}" "http://localhost:8080/professors"

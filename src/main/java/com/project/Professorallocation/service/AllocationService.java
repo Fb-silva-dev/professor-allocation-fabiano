@@ -20,7 +20,7 @@ public class AllocationService {
 
 	}
 
-	public List<Allocation> findAll(String name) {
+	public List<Allocation> findAll() {
 		return repository.findAll();
 
 	}

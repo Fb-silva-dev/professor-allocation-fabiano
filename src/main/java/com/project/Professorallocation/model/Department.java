@@ -10,12 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 // declarando a classe como entidade
 
 @Entity
 @Table(name = "department")
 public class Department {
+	@JsonProperty(access = Access.WRITE_ONLY)
 	@Id // auto_increment
+	@Column(nullable =false )
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 

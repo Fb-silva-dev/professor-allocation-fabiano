@@ -27,6 +27,7 @@ import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 @Entity
 @Table(name = "allocation")
 public class Allocation {
+	// @JsonProperty(access = Access.WRITE_ONLY)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@Id
 	@Column(nullable = false)
@@ -36,15 +37,15 @@ public class Allocation {
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, name = "day")
 	private DayOfWeek dayOfWeek;
-	
-	@JsonFormat(pattern = "HH:mmZ",timezone = "America/Recife")
+
+	@JsonFormat(pattern = "HH:mmZ", timezone = "America/Recife")
 	@JsonSerialize(using = DateSerializer.class)
 	@JsonDeserialize(using = DateDeserializer.class)
 	@Temporal(TemporalType.TIME)
 	@Column(nullable = false)
 	private Date startHour;
 
-	@JsonFormat(pattern = "HH:mmZ",timezone = "America/Recife")
+	@JsonFormat(pattern = "HH:mmZ", timezone = "America/Recife")
 	@JsonSerialize(using = DateSerializer.class)
 	@JsonDeserialize(using = DateDeserializer.class)
 	@Temporal(TemporalType.TIME)
@@ -58,7 +59,7 @@ public class Allocation {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "professor_Id", nullable = false, insertable = false, updatable = false)
 	private Professor professor;
-	
+
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@Column(name = "course_Id", nullable = false, unique = true)
 	private Long courseId;
@@ -74,7 +75,7 @@ public class Allocation {
 	public Long getId() {
 		return id;
 	}
- 
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -86,7 +87,7 @@ public class Allocation {
 	public void setDayOfWeek(DayOfWeek dayOfWeek) {
 		this.dayOfWeek = dayOfWeek;
 	}
- 
+
 	public Date getStartHour() {
 		return startHour;
 	}

@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @Entity
 @Table(name = "course")
 public class Course {
+	//@JsonProperty(access = Access.WRITE_ONLY)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

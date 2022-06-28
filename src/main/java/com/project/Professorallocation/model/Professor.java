@@ -23,21 +23,20 @@ public class Professor {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 100, nullable = false)
+	@Column(nullable = false)
 	private String name;
 
 	@Column(length = 11, nullable = false, unique = true)
 	private String Cpf;
-	
+
 	@JsonProperty(access = Access.WRITE_ONLY)
-	@Column(name = "department_id", nullable = false, unique = false)
+	@Column(name = "department_id", nullable = false, unique = true)
 	private Long departmentId;
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "department_id", nullable = false, insertable = false, updatable = false)
-	
 	private Department department;
-	
+
 	public Department getDepartment() {
 		return department;
 	}
@@ -45,16 +44,18 @@ public class Professor {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
+	
 
 	public Professor() {
 		super();
 	}
+
 	@Override
 	public String toString() {
 		return "Professor [id=" + id + ", name=" + name + ", cpf=" + Cpf + ", departmentId=" + departmentId + "]";
 	}
 
-	public Long getId() { 
+	public Long getId() {
 		return id;
 	}
 
@@ -84,8 +85,5 @@ public class Professor {
 
 	public void setDepartmentId(Long departmentId) {
 		this.departmentId = departmentId;
-	} 
-
-
-	
+	}
 }

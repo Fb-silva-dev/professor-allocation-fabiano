@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.project.Professorallocation.model.Allocation;
 import com.project.Professorallocation.model.Course;
+//import com.project.Professorallocation.repository.AllocationRepository;
 import com.project.Professorallocation.repository.CourseRepository;
 
 @Service
-
 public class CourseService {
 
 	private final CourseRepository repository;
@@ -47,6 +48,10 @@ public class CourseService {
 		if (repository.existsById(id)) {
 			repository.deleteById(id);
 		}
+	}
+	
+	public List<Allocation>findByCourseId(Long id){
+		return findByCourseId(id);
 	}
 
 	public Course findById(Long id) {
